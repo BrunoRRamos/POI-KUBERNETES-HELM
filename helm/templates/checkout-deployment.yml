@@ -1,32 +1,32 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: { { .Values.checkout.msName } }
+  name: {{ .Values.checkout.msName }}
 spec:
   selector:
     matchLabels:
-      app: { { .Values.checkout.msName } }
+      app: {{ .Values.checkout.msName }}
 
   template:
     metadata:
       labels:
-        app: { { .Values.checkout.msName } }
+        app: {{ .Values.checkout.msName }}
     spec:
       containers:
-        - name: { { .Values.checkout.msName } }
-          image: { { .Values.checkout.image.repository } }
+        - name: {{ .Values.checkout.msName }}
+          image: {{ .Values.checkout.image.repository }}
           ports:
-            - containerPort: { { .Values.checkout.containerPort } }
+            - containerPort: {{ .Values.checkout.containerPort }}
           env:
-            - name: { { .Values.product.name } }
-              value: { { .Values.product.apiUrl } }
-            - name: { { .Values.rabbitMqCookie.name } }
-              value: { { .Values.rabbitMqCookie.cookie } }
-            - name: { { .Values.rabbitMqDefaultUser.name } }
-              value: { { .Values.rabbitMqDefaultUser.user } }
-            - name: { { .Values.rabbitMqDefaultPass.name } }
-              value: { { .Values.rabbitMqDefaultPass.pass } }
-            - name: { { .Values.rabbitMqDefaultVhost.name } }
-              value: { { .Values.rabbitMqDefaultVhost.vhost } }
-            - name: { { .Values.rabbitMqDefaultHost.name } }
-              value: { { .Values.rabbitMqDefaultHost.host } }
+            - name: {{ .Values.product.name }}
+              value: {{ .Values.product.apiUrl }}
+            - name: {{ .Values.rabbitMqCookie.name }}
+              value: {{ .Values.rabbitMqCookie.cookie }}
+            - name: {{ .Values.rabbitMqDefaultUser.name }}
+              value: {{ .Values.rabbitMqDefaultUser.user }}
+            - name: {{ .Values.rabbitMqDefaultPass.name }}
+              value: {{ .Values.rabbitMqDefaultPass.pass }}
+            - name: {{ .Values.rabbitMqDefaultVhost.name }}
+              value: {{ .Values.rabbitMqDefaultVhost.vhost }}
+            - name: {{ .Values.rabbitMqDefaultHost.name }}
+              value: {{ .Values.rabbitMqDefaultHost.host }}

@@ -1,36 +1,36 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: { { .Values.orderPayment.msName } }
+  name: {{ .Values.orderPayment.msName }}
 spec:
   selector:
     matchLabels:
-      app: { { .Values.orderPayment.msName } }
+      app: {{ .Values.orderPayment.msName }}
 
   template:
     metadata:
       labels:
-        app: { { .Values.orderPayment.msName } }
+        app: {{ .Values.orderPayment.msName }}
     spec:
       containers:
-        - name: { { .Values.orderPayment.msName } }
-          image: { { .Values.orderPayment.image.repository } }
+        - name: {{ .Values.orderPayment.msName }}
+          image: {{ .Values.orderPayment.image.repository }}
           command: ["./order"]
-          args: ["-opt", { { .Values.orderPayment.args } }]
+          args: ["-opt", {{ .Values.orderPayment.args }}]
           ports:
-            - containerPort: { { .Values.orderPayment.containerPort } }
+            - containerPort: {{ .Values.orderPayment.containerPort }}
           env:
-            - name: { { .Values.product.name } }
-              value: { { .Values.product.apiUrl } }
-            - name: { { .Values.rabbitMqCookie.name } }
-              value: { { .Values.rabbitMqCookie.cookie } }
-            - name: { { .Values.rabbitMqDefaultUser.name } }
-              value: { { .Values.rabbitMqDefaultUser.user } }
-            - name: { { .Values.rabbitMqDefaultPass.name } }
-              value: { { .Values.rabbitMqDefaultPass.pass } }
-            - name: { { .Values.rabbitMqDefaultVhost.name } }
-              value: { { .Values.rabbitMqDefaultVhost.vhost } }
-            - name: { { .Values.rabbitMqDefaultHost.name } }
-              value: { { .Values.rabbitMqDefaultHost.host } }
-            - name: { { .Values.reddisHost.name } }
-              value: { { .Values.reddisHost.host } }
+            - name: {{ .Values.product.name }}
+              value: {{ .Values.product.apiUrl }}
+            - name: {{ .Values.rabbitMqCookie.name }}
+              value: {{ .Values.rabbitMqCookie.cookie }}
+            - name: {{ .Values.rabbitMqDefaultUser.name }}
+              value: {{ .Values.rabbitMqDefaultUser.user }}
+            - name: {{ .Values.rabbitMqDefaultPass.name }}
+              value: {{ .Values.rabbitMqDefaultPass.pass }}
+            - name: {{ .Values.rabbitMqDefaultVhost.name }}
+              value: {{ .Values.rabbitMqDefaultVhost.vhost }}
+            - name: {{ .Values.rabbitMqDefaultHost.name }}
+              value: {{ .Values.rabbitMqDefaultHost.host }}
+            - name: {{ .Values.reddisHost.name }}
+              value: {{ .Values.reddisHost.host }}
