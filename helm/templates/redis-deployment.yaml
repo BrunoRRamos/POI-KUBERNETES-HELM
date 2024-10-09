@@ -8,7 +8,7 @@ spec:
   selector:
     matchLabels:
       app: {{ .Values.redis.name }}
-  replicas: 1
+  replicas: {{ .Values.redis.replicas }}
   template:
     metadata:
       labels:
@@ -19,7 +19,3 @@ spec:
         image: {{ .Values.redis.image.repository }}
         ports:
         - containerPort: {{ .Values.redis.containerPort }}
-
----
-
-

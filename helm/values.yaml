@@ -6,12 +6,28 @@ product:
     repository: wesleywillians/intensivo-product
   containerPort: 8081
 
+productService:
+  name: PRODUCT_SERVICE
+  type: NodePort
+  port: 8081
+  protocol: TCP
+  nodePort: 30080
+  selector:
+    app: product
+
+
 rabbitMq:
   name: RABBITMQ
   image: 
     repository: rabbitmq:3-management
   containerPort1: 15672
   containerPort2: 5672
+
+rabbitMqService:
+  name: RABBITMQ_SERVICE
+  type: ClusterIP
+  port: 15672
+  protocol: TCP
 
 rabbitMqCookie:
   name: RABBITMQ_ERLANG_COOKIE
@@ -38,6 +54,7 @@ redis:
   image:
     repository: redis
   containerPort: 6379
+  replicas: 1
 
 redisService:
   name: REDIS_SERVICE
@@ -53,6 +70,14 @@ catalog:
   image:
     repository: wesleywillians/intensivo-catalog
   containerPort: 8080
+
+catalogService:
+  name: CATALOG_SERVICE
+  type: LoadBalancer
+  port: 8080
+  protocol: TCP
+  selector:
+    app: catalog
 
 checkout:
   msName: checkout
