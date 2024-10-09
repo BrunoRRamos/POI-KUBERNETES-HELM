@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: { { .Values.checkout.name } }
+  name: { { .Values.checkout.msName } }
 spec:
   selector:
     matchLabels:
-      app: { { .Values.checkout.name } }
+      app: { { .Values.checkout.msName } }
 
   template:
     metadata:
       labels:
-        app: { { .Values.checkout.name } }
+        app: { { .Values.checkout.msName } }
     spec:
       containers:
-        - name: { { .Values.checkout.name } }
+        - name: { { .Values.checkout.msName } }
           image: { { .Values.checkout.image.repository } }
           ports:
             - containerPort: { { .Values.checkout.containerPort } }

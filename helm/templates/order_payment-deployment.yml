@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: { { .Values.orderPayment.name } }
+  name: { { .Values.orderPayment.msName } }
 spec:
   selector:
     matchLabels:
-      app: { { .Values.orderPayment.name } }
+      app: { { .Values.orderPayment.msName } }
 
   template:
     metadata:
       labels:
-        app: { { .Values.orderPayment.name } }
+        app: { { .Values.orderPayment.msName } }
     spec:
       containers:
-        - name: { { .Values.orderPayment.name } }
+        - name: { { .Values.orderPayment.msName } }
           image: { { .Values.orderPayment.image.repository } }
           command: ["./order"]
           args: ["-opt", { { .Values.orderPayment.args } }]
