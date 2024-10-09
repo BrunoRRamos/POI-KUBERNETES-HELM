@@ -1,0 +1,53 @@
+product:
+  name: PRODUCT_URL
+  appUrl: "http://product-service:8081"
+
+rabbitMq-cookie:
+  name: RABBITMQ_ERLANG_COOKIE
+  cookie: "SWQOKODSQALRPCLNMEQG"
+
+rabbitMq-default-user:
+  name: RABBITMQ_DEFAULT_USER
+  user: "rabbitmq"
+
+rabbitMq-default-pass:
+  name: RABBITMQ_DEFAULT_PASS
+  pass: "rabbitmq"
+
+rabbitMq-default-vhost:
+  name: RABBITMQ_DEFAULT_VHOST
+  vhost: "/"
+
+rabbitMq-default-host:
+  name: RABBITMQ_DEFAULT_HOST
+  host: "rabbitmq-service"
+
+reddis-host:
+  name: REDIS_HOST
+  host: "redis-service:6379"
+
+catalog:
+  ms-name: catalog
+  image:
+    repository: wesleywillians/intensivo-catalog
+  containerPort: 8080
+
+checkout:
+  ms-name: checkout
+  image:
+    repository: wesleywillians/intensivo-checkout
+  containerPort: 8082
+
+orderPayment:
+  ms-name: orderpayment
+  image:
+    repository: wesleywillians/intensivo-order:v2
+  containerPort: 6572
+  args: "payment"
+
+orderPayment:
+  ms-name: order
+  image:
+    repository: wesleywillians/intensivo-order:v2
+  containerPort: 6572
+  args: "checkout"

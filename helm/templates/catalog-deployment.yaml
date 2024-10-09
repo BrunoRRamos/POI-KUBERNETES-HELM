@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.catalog.name }}
+spec:
+  selector:
+    matchLabels:
+      app: {{ .Values.catalog.name }}
+
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.catalog.name }}
+    spec:
+      containers:
+        - name: {{ .Values.catalog.name }}
+          image: {{ .Values.catalog.image.repository }}
+          ports:
+            - containerPort: {{ .Values.catalog.containerPort }}
+          env:
+            - name: PRODUCT_URL
+              value: {{ .Values.product.appUrl }}
