@@ -49,5 +49,5 @@ orderPayment:
   msName: order
   image:
     repository: wesleywillians/intensivo-order:v2
-  containerPort: 6572
+  containerPort: 6573
   args: "checkout"
