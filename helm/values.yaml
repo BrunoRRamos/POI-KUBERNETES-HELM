@@ -7,7 +7,7 @@ product:
   containerPort: 8081
 
 productService:
-  name: PRODUCT_SERVICE
+  name: PRODUCT-SERVICE
   type: NodePort
   port: 8081
   protocol: TCP
@@ -24,29 +24,29 @@ rabbitMq:
   containerPort2: 5672
 
 rabbitMqService:
-  name: RABBITMQ_SERVICE
+  name: RABBITMQ-SERVICE
   type: ClusterIP
   port: 15672
   protocol: TCP
 
 rabbitMqCookie:
-  name: RABBITMQ_ERLANG_COOKIE
+  name: RABBITMQ-ERLANG-COOKIE
   cookie: "SWQOKODSQALRPCLNMEQG"
 
 rabbitMqDefaultUser:
-  name: RABBITMQ_DEFAULT_USER
+  name: RABBITMQ-DEFAULT-USER
   user: "rabbitmq"
 
 rabbitMqDefaultPass:
-  name: RABBITMQ_DEFAULT_PASS
+  name: RABBITMQ-DEFAULT-PASS
   pass: "rabbitmq"
 
 rabbitMqDefaultVhost:
-  name: RABBITMQ_DEFAULT_VHOST
+  name: RABBITMQ-DEFAULT-VHOST
   vhost: "/"
 
 rabbitMqDefaultHost:
-  name: RABBITMQ_DEFAULT_HOST
+  name: RABBITMQ-DEFAULT-HOST
   host: "rabbitmq-service"
 
 redis:
@@ -57,12 +57,12 @@ redis:
   replicas: 1
 
 redisService:
-  name: REDIS_SERVICE
+  name: REDIS-SERVICE
   type: ClusterIP
   port: 6379
 
 redisHost:
-  name: REDIS_HOST
+  name: REDIS-HOST
   host: "redis-service:6379"
 
 catalog:
@@ -72,7 +72,7 @@ catalog:
   containerPort: 8080
 
 catalogService:
-  name: CATALOG_SERVICE
+  name: CATALOG-SERVICE
   type: LoadBalancer
   port: 8080
   protocol: TCP
@@ -92,9 +92,9 @@ orderPayment:
   containerPort: 6572
   args: "payment"
 
-orderPayment:
-  msName: order
-  image:
-    repository: wesleywillians/intensivo-order:v2
-  containerPort: 6573
-  args: "checkout"
+# orderPayment:
+#   msName: order
+#   image:
+#     repository: wesleywillians/intensivo-order:v2
+#   containerPort: 6573
+#   args: "checkout"
