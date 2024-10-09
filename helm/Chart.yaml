@@ -1,0 +1,5 @@
+apiVersion: v2
+name: kubernetos-helm-chart
+description: chart do projeto
+version: 0.1.0
+appVersion: "1.0"
