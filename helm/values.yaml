@@ -2,6 +2,12 @@ product:
   name: PRODUCT_URL
   appUrl: "http://product-service:8081"
 
+rabbitMq:
+  name: RABBITMQ
+  image: 
+    repository: rabbitmq:3-management
+  containerPort: 15672, 5672
+
 rabbitMqCookie:
   name: RABBITMQ_ERLANG_COOKIE
   cookie: "SWQOKODSQALRPCLNMEQG"

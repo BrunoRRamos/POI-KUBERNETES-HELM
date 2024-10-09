@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.rabbitMq.name }}
+spec:
+  selector:
+    matchLabels:
+      app: {{ .Values.rabbitMq.name }}
+
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.rabbitMq.name }}
+    spec:
+      containers:
+        - name: {{ .Values.rabbitMq.name }}
+          image: {{ .Values.rabbitMq.image.repository }}
+          ports:
+            - containerPort: {{ .Values.rabbitMq.containerPort }}
+          env:
+            - name: {{ .Values.rabbitMqCookie.name }}
+              value: {{ .Values.rabbitMqCookie.cookie }}
+            - name: {{ .Values.rabbitMqDefaultUser.name }}
+              value: {{ .Values.rabbitMqDefaultUser.user }}
+            - name: {{ .Values.rabbitMqDefaultPass.name }}
+              value: {{ .Values.rabbitMqDefaultPass.pass }}
+            - name: {{ .Values.rabbitMqDefaultVhost.name }}
+              value: {{ .Values.rabbitMqDefaultVhost.vhost }}
+
