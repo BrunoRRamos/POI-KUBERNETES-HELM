@@ -32,5 +32,5 @@ spec:
               value: {{ .Values.rabbitMqDefaultVhost.vhost }}
             - name: {{ .Values.rabbitMqDefaultHost.name }}
               value: {{ .Values.rabbitMqDefaultHost.host }}
-            - name: {{ .Values.reddisHost.name }}
-              value: {{ .Values.reddisHost.host }}
+            - name: {{ .Values.redisHost.name }}
+              value: {{ .Values.redisHost.host }}
