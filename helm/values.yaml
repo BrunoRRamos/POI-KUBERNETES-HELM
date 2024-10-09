@@ -1,6 +1,10 @@
 product:
-  name: PRODUCT_URL
-  appUrl: "http://product-service:8081"
+  name: PRODUCT
+  apiUrl: "http://product-service:8081"
+  msName: product
+  image:
+    repository: wesleywillians/intensivo-product
+  containerPort: 8081
 
 rabbitMq:
   name: RABBITMQ
@@ -27,6 +31,12 @@ rabbitMqDefaultVhost:
 rabbitMqDefaultHost:
   name: RABBITMQ_DEFAULT_HOST
   host: "rabbitmq-service"
+
+reddis:
+  name: REDIS
+  image:
+    repository: redis
+  containerPort: 6379
 
 reddisHost:
   name: REDIS_HOST
