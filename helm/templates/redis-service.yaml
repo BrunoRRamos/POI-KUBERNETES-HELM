@@ -3,11 +3,11 @@ kind: Service
 metadata:
   name: {{ .Values.redisService.name }}
   labels:
-    app: {{ .Values.redisService.name }}
-    role: {{ .Values.redisService.role }}
+    app: {{ .Values.redisService.labels.app }}
+    role: {{ .Values.redisService.labels.role }}
 spec:
   ports:
-  - port: {{ .Values.redisService.containerPort }}
-    targetPort: {{ .Values.redisService.containerPort }}
+  - port: {{ .Values.redisService.port }}
+    targetPort: {{ .Values.redisService.port }}
   selector:
     app: {{ .Values.redisService.name }}
