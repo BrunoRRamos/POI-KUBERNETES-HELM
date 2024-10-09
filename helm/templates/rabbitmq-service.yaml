@@ -8,6 +8,6 @@ spec:
   type: {{ .Values.rabbitMqService.type }}
   ports:
     - protocol: {{ .Values.rabbitMqService.protocol }}
-      port: {{ .Values.rabbitMqService.containerPort }}
+      port: {{ .Values.rabbitMqService.port }}
   selector:
     app: {{ .Values.rabbitMqService.name }}
