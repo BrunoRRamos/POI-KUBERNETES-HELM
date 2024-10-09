@@ -19,8 +19,7 @@ rabbitMq:
   name: rabbitmq
   image: 
     repository: rabbitmq:3-management
-  containerPort1: 15672
-  containerPort2: 5672
+  containerPort: 15672
 
 rabbitMqService:
   name: rabbitmq-service

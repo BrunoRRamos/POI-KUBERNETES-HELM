@@ -16,8 +16,7 @@ spec:
         - name: {{ .Values.rabbitMq.name }}
           image: {{ .Values.rabbitMq.image.repository }}
           ports:
-            - containerPort: {{ .Values.rabbitMq.containerPort1 }}
-            - containerPort: {{ .Values.rabbitMq.containerPort2 }}
+            - containerPort: {{ .Values.rabbitMq.containerPort }}
           env:
             - name: {{ .Values.rabbitMqCookie.name }}
               value: {{ .Values.rabbitMqCookie.cookie }}
