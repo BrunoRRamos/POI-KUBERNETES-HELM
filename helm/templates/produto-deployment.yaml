@@ -1,24 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Values.orderPayment.msName }}
+  name: {{ .Values.product.msName }}
 spec:
   selector:
     matchLabels:
-      app: {{ .Values.orderPayment.msName }}
+      app: {{ .Values.product.msName }}
 
   template:
     metadata:
       labels:
-        app: {{ .Values.orderPayment.msName }}
+        app: {{ .Values.product.msName }}
     spec:
       containers:
-        - name: {{ .Values.orderPayment.msName }}
-          image: {{ .Values.orderPayment.image.repository }}
+        - name: {{ .Values.product.msName }}
+          image: {{ .Values.product.image.repository }}
           command: ["./order"]
-          args: ["-opt", {{ .Values.orderPayment.args }}]
+          args: ["-opt", {{ .Values.product.args }}]
           ports:
-            - containerPort: {{ .Values.orderPayment.containerPort }}
+            - containerPort: {{ .Values.product.containerPort }}
           env:
             - name: {{ .Values.product.name }}
               value: {{ .Values.product.apiUrl }}
