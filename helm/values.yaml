@@ -1,5 +1,5 @@
 product:
-  name: PRODUCT
+  name: product
   apiUrl: "http://product-service:8081"
   msName: product
   image:
@@ -7,7 +7,7 @@ product:
   containerPort: 8081
 
 productService:
-  name: PRODUCT-SERVICE
+  name: product-service
   type: NodePort
   port: 8081
   protocol: TCP
@@ -15,54 +15,53 @@ productService:
   selector:
     app: product
 
-
 rabbitMq:
-  name: RABBITMQ
+  name: rabbitmq
   image: 
     repository: rabbitmq:3-management
   containerPort1: 15672
   containerPort2: 5672
 
 rabbitMqService:
-  name: RABBITMQ-SERVICE
+  name: rabbitmq-service
   type: ClusterIP
   port: 15672
   protocol: TCP
 
 rabbitMqCookie:
-  name: RABBITMQ-ERLANG-COOKIE
+  name: rabbitmq-erlang-cookie
   cookie: "SWQOKODSQALRPCLNMEQG"
 
 rabbitMqDefaultUser:
-  name: RABBITMQ-DEFAULT-USER
+  name: rabbitmq-default-user
   user: "rabbitmq"
 
 rabbitMqDefaultPass:
-  name: RABBITMQ-DEFAULT-PASS
+  name: rabbitmq-default-pass
   pass: "rabbitmq"
 
 rabbitMqDefaultVhost:
-  name: RABBITMQ-DEFAULT-VHOST
+  name: rabbitmq-default-vhost
   vhost: "/"
 
 rabbitMqDefaultHost:
-  name: RABBITMQ-DEFAULT-HOST
+  name: rabbitmq-default-host
   host: "rabbitmq-service"
 
 redis:
-  name: REDIS
+  name: redis
   image:
     repository: redis
   containerPort: 6379
   replicas: 1
 
 redisService:
-  name: REDIS-SERVICE
+  name: redis-service
   type: ClusterIP
   port: 6379
 
 redisHost:
-  name: REDIS-HOST
+  name: redis-host
   host: "redis-service:6379"
 
 catalog:
@@ -72,7 +71,7 @@ catalog:
   containerPort: 8080
 
 catalogService:
-  name: CATALOG-SERVICE
+  name: catalog-service
   type: LoadBalancer
   port: 8080
   protocol: TCP
@@ -91,10 +90,3 @@ orderPayment:
     repository: wesleywillians/intensivo-order:v2
   containerPort: 6572
   args: "payment"
-
-# orderPayment:
-#   msName: order
-#   image:
-#     repository: wesleywillians/intensivo-order:v2
-#   containerPort: 6573
-#   args: "checkout"
